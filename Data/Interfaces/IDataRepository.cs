@@ -7,10 +7,10 @@ namespace Data.Interfaces
     public interface IDataRepository
     {
         Task<string> IsDataRepositoryOk(string value);
-        Task<List<Meal>> GetAllMeals();
-        Task<bool> CreateNewMeal(Meal meal);
-        Task<Meal> GetMealById(string mealId);
-        Task<bool> UpdateMeal(Meal meal);
-        Task<bool> DeleteMeal(Meal mealFounded);
+        Task<List<Post>> GetAllPosts();
+        Task<bool> CreateNewPost(Post meal);
+        Task<Post> GetPostById(string mealId);
+        Task<bool> UpdatePost(Post meal);
+        Task<bool> DeletePost(Post mealFounded);
     }
 }

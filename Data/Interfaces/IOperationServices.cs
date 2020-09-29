@@ -7,10 +7,10 @@ namespace Data.Interfaces
     public interface IOperationServices
     {
         Task<string> IsServiceOk(string value);
-        Task<List<Meal>> GetAllMeals();
-        Task<bool> CreateNewMeal(Meal meal);
-        Task<bool> UpdateMeal(Meal meal);
-        Task<bool> DeleteMeal(string mealId);
-        Task<Meal> GetMealById(string mealId);
+        Task<List<Post>> GetAllPosts();
+        Task<bool> CreateNewPost(Post meal);
+        Task<bool> UpdatePost(Post meal);
+        Task<bool> DeletePost(string mealId);
+        Task<Post> GetPostById(string mealId);
     }
 }

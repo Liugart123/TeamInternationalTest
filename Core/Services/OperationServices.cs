@@ -15,14 +15,14 @@ namespace Core.Services
             _dataRepository = dataRep;
         }
 
-        public async Task<bool> CreateNewMeal(Meal meal)
+        public async Task<bool> CreateNewPost(Post post)
         {
-            return await _dataRepository.CreateNewMeal(meal);
+            return await _dataRepository.CreateNewPost(post);
         }
 
-        public async Task<List<Meal>> GetAllMeals()
+        public async Task<List<Post>> GetAllPosts()
         {
-            return await _dataRepository.GetAllMeals();
+            return await _dataRepository.GetAllPosts();
         }
 
         public async Task<string> IsServiceOk(string value)
@@ -30,25 +30,25 @@ namespace Core.Services
             return await _dataRepository.IsDataRepositoryOk(value);
         }
 
-        public async Task<bool> UpdateMeal(Meal meal)
+        public async Task<bool> UpdatePost(Post post)
         {
-            Meal mealFounded = await GetMealById(meal.Id);
-            if (mealFounded == null) return false;
-            return await _dataRepository.UpdateMeal(meal);
+            Post postFounded = await GetPostById(post.Id);
+            if (postFounded == null) return false;
+            return await _dataRepository.UpdatePost(post);
         }
 
-        public async Task<bool> DeleteMeal(string mealId)
+        public async Task<bool> DeletePost(string postId)
         {
-            Meal mealFounded = await GetMealById(mealId);
-            if (mealFounded == null) return false;
-            return await _dataRepository.DeleteMeal(mealFounded);
+            Post postFounded = await GetPostById(postId);
+            if (postFounded == null) return false;
+            return await _dataRepository.DeletePost(postFounded);
         }
 
-        public async Task<Meal> GetMealById(string mealId)
+        public async Task<Post> GetPostById(string postId)
         {
             try
             {
-                return await _dataRepository.GetMealById(mealId);
+                return await _dataRepository.GetPostById(postId);
             }
             catch (Exception)
             {

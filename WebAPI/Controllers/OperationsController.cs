@@ -30,59 +30,59 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllMeals")]
+        [Route("GetAllPosts")]
         [ApiKeyAuth]
-        public async Task<IActionResult> GetAllMeals()
+        public async Task<IActionResult> GetAllPosts()
         {
-            List<Meal> meals = await SafeGet(s => s.GetAllMeals());
-            return Ok(meals);
+            List<Post> posts = await SafeGet(s => s.GetAllPosts());
+            return Ok(posts);
         }
 
         [HttpGet]
-        [Route("GetMealById")]
+        [Route("GetPostById")]
         [ApiKeyAuth]
-        public async Task<IActionResult> GetMealById(string mealId)
+        public async Task<IActionResult> GetPostById(string postId)
         {
-            Meal meal = await SafeGet(s => s.GetMealById(mealId));
-            if (meal == null)
+            Post post = await SafeGet(s => s.GetPostById(postId));
+            if (post == null)
                 return NotFound();
-            return Ok(meal);
+            return Ok(post);
         }
 
         [HttpPost]
-        [Route("CreateNewMeal")]
+        [Route("CreateNewPost")]
         [ApiKeyAuth]
-        public async Task<IActionResult> CreateNewMeal(Meal meal)
+        public async Task<IActionResult> CreateNewPost(Post post)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            bool result = await SafeGet(s => s.CreateNewMeal(meal));
+            bool result = await SafeGet(s => s.CreateNewPost(post));
             return Ok(result);
         }
 
         [HttpPut]
-        [Route("UpdateMeal")]
+        [Route("UpdatePost")]
         [ApiKeyAuth]
-        public async Task<IActionResult> UpdateMeal(Meal meal)
+        public async Task<IActionResult> UpdatePost(Post post)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            bool res = await SafeGet(s => s.UpdateMeal(meal));
+            bool res = await SafeGet(s => s.UpdatePost(post));
             if (res)
                 return NoContent();
             return NotFound();
         }
 
         [HttpDelete]
-        [Route("DeleteMeal")]
+        [Route("DeletePost")]
         [ApiKeyAuth]
-        public async Task<IActionResult> DeleteMeal(string mealId)
+        public async Task<IActionResult> DeletePost(string postId)
         {
-            bool res = await SafeGet(s => s.DeleteMeal(mealId));
+            bool res = await SafeGet(s => s.DeletePost(postId));
             if (res)
                 return NoContent();
             return NotFound();
